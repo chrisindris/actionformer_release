@@ -4,7 +4,7 @@ dataset:
   - 1.0
   default_fps: null
   downsample_rate: 1
-  feat_folder: /data/i5O/i5O-10epochsfinetune/
+  feat_folder: /data/i5O/i5OData/ActionFormer-features/i5O-10epochsfinetune/
   feat_stride: 4
   file_ext: .npy
   file_prefix: null

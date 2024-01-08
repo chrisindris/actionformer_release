@@ -3,7 +3,7 @@ train_split: ['validation']
 val_split: ['test']
 dataset: {
   json_file: ./data/i5O/annotations/i5O-annotations.json,
-  feat_folder: ./data/i5O/features_videomaev2/,
+  feat_folder: /data/i5O/i5OData/ActionFormer-features/i5O-10epochsfinetune,
   file_prefix: ~,
   file_ext: .npy,
   num_classes: 20, # i5O has 20 classes

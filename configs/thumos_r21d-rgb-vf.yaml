@@ -1,16 +1,17 @@
-# These are the thumos features from the actionformer repo (not extracted by cindris)
+# These are the thumos features extracted from chrisindris/video-features
+# # using R(2+1)D (RGB only)
 
 dataset_name: thumos
 train_split: ['validation']
 val_split: ['test']
 dataset: {
-  json_file: ./data/thumos/annotations/thumos14.json,
-  feat_folder: ./data/i3d_features/,
+  json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
+  feat_folder: ./data/r21d/r2plus1d_18_16_kinetics/,
   file_prefix: ~,
-  file_ext: .npy,
+  file_ext: _r21d.npy,
   num_classes: 20,
-  input_dim: 2048,
-  feat_stride: 4,
+  input_dim: 512,
+  feat_stride: 16,
   num_frames: 16,
   # serve as data augmentation
   trunc_thresh: 0.5,

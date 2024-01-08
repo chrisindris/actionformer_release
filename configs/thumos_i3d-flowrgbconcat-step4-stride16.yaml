@@ -4,10 +4,10 @@ dataset_name: thumos
 train_split: ['validation']
 val_split: ['test']
 dataset: {
-  json_file: ./data/thumos/annotations/thumos14.json,
-  feat_folder: ./data/i3d_features/,
+  json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
+  feat_folder: /root/models/video_features/output_video-features_thumos_i3d/i3d/,
   file_prefix: ~,
-  file_ext: .npy,
+  file_ext: _flowrgb-concat.npy,
   num_classes: 20,
   input_dim: 2048,
   feat_stride: 4,

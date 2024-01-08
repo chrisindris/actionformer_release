@@ -10,7 +10,7 @@ dataset:
   file_prefix: null
   force_upsampling: false
   input_dim: 1408
-  json_file: /data/i5O/i5OData/annotations/i5Oannotations-5folds.json
+  json_file: /data/i5O/i5OData/annotations/i5Oannotations-5folds-undercover-left.json
   max_seq_len: 2304
   num_classes: 20
   num_frames: 16
@@ -106,9 +106,9 @@ output_folder: ./ckpt/
 test_cfg: *id001
 train_cfg: *id002
 train_split:
+- '1'
 - '2'
 - '3'
 - '4'
-- '5'
 val_split:
-- '1'
+- '5'

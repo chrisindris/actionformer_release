@@ -1,17 +1,18 @@
-# These are the thumos features from the actionformer repo (not extracted by cindris)
+# These are the thumos features from chrisindris/video_features
+# rgb added to flow
 
 dataset_name: thumos
 train_split: ['validation']
 val_split: ['test']
 dataset: {
-  json_file: ./data/thumos/annotations/thumos14.json,
-  feat_folder: ./data/i3d_features/,
+  json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
+  feat_folder: /root/models/video_features/output_raft_stepsize64/i3d/,
   file_prefix: ~,
-  file_ext: .npy,
+  file_ext: _rgbflow.npy,
   num_classes: 20,
-  input_dim: 2048,
-  feat_stride: 4,
-  num_frames: 16,
+  input_dim: 1024,
+  feat_stride: 64,
+  num_frames: 128,
   # serve as data augmentation
   trunc_thresh: 0.5,
   crop_ratio: [0.9, 1.0],
