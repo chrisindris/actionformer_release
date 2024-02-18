@@ -12,7 +12,7 @@ dataset: {
   num_classes: 20,
   input_dim: 1024,
   feat_stride: 64,
-  num_frames: 128,
+  num_frames: 16,
   # serve as data augmentation
   trunc_thresh: 0.5,
   crop_ratio: [0.9, 1.0],

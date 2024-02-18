@@ -5,9 +5,9 @@ train_split: ['validation']
 val_split: ['test']
 dataset: {
   json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
-  feat_folder: /root/models/video_features/output_video-features_thumos_i3d/i3d/,
+  feat_folder: /root/models/actionformer_release/cat_features/,
   file_prefix: ~,
-  file_ext: _rgbflow-concat.npy,
+  file_ext: -rgb.npy.npy,
   num_classes: 20,
   input_dim: 2048,
   feat_stride: 4,

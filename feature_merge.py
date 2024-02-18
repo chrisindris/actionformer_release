@@ -64,11 +64,14 @@ def main(args):
     flow_feature_dir = args.flow_feature_dir or args.feature_dir
 
     rgbs = get_features(
-        "rgb.npy" if ("r21d" not in args.rgb_feature_dir) else "r21d.npy",
+        "_rgb.npy"
+        if ("r21d" not in (args.feature_dir or args.rgb_feature_dir))
+        else "r21d.npy",
         rgb_feature_dir,
     )
     flows = get_features("flow.npy", flow_feature_dir)
 
+    print(len(rgbs), len(flows))
     assert len(rgbs) == len(flows)
 
     operation = globals()[args.operation]
@@ -76,7 +79,7 @@ def main(args):
     for f in range(len(rgbs)):
         rgb = np.load(os.path.join(rgb_feature_dir, rgbs[f]))
         flow = np.load(os.path.join(flow_feature_dir, flows[f]))
-        stem = re.sub("_(rgb|flow|r21d).npy", r"", rgbs[f])
+        stem = re.sub("(rgb|flow|r21d).npy", r"", rgbs[f])
 
         # add the two arrays together
         rgbflow = operation(rgb, flow)
