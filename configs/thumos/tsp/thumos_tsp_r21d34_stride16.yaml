@@ -1,17 +1,17 @@
 # These are the thumos features that I extracted using the TSP repo
 
 dataset_name: thumos
-devices: ['cuda:1']
+devices: ['cuda:0']
 train_split: ['validation']
 val_split: ['test']
 dataset: {
   json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
-  feat_folder: /root/models/TSP/extract_features/output/r2plus1d_34-tsp_on_thumos14_features/stride_1_npy/,
+  feat_folder: /root/models/TSP/extract_features/output/r2plus1d_34-tsp_on_thumos14_features/stride_16_npy/,
   file_prefix: ~,
   file_ext: .npy,
   num_classes: 20,
   input_dim: 512,
-  feat_stride: 1,
+  feat_stride: 16,
   num_frames: 16,
   default_fps: 15,
   # serve as data augmentation

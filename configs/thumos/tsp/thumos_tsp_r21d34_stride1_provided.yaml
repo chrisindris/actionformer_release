@@ -1,18 +1,19 @@
-# These are the thumos features from the actionformer repo (not extracted by cindris)
+# These are the thumos features from the TSP repo
 
-dataset_name: i5O
+dataset_name: thumos
 devices: ['cuda:0']
 train_split: ['validation']
 val_split: ['test']
 dataset: {
-  json_file: /data/i5O/i5OData/annotations/i5Oannotations.json,
-  feat_folder: /data/i5O/i5OData/video_features/r21d/r2plus1d_18_16_kinetics/stack_size16step_size4extraction_fpsNone_flat/,
+  json_file: /data/i5O/THUMOS14/annotations/thumos14.json,
+  feat_folder: /root/models/TSP/provided_features/r2plus1d_34-tsp_on_thumos14-all_features/,
   file_prefix: ~,
   file_ext: .npy,
   num_classes: 20,
   input_dim: 512,
-  feat_stride: 8,
-  num_frames: 8,
+  feat_stride: 1,
+  num_frames: 16,
+  default_fps: 15,
   # serve as data augmentation
   trunc_thresh: 0.5,
   crop_ratio: [0.9, 1.0],
@@ -20,7 +21,7 @@ dataset: {
 }
 model: {
   fpn_type: identity,
-  max_buffer_len_factor: 6.0,
+  max_buffer_len_factor: 12.0,
   n_mha_win_size: 19,
 }
 opt: {
@@ -29,8 +30,8 @@ opt: {
   weight_decay: 0.05,
 }
 loader: {
-  batch_size: 32,
-  num_workers: 8,
+  batch_size: 2,
+  num_workers: 2,
 }
 train_cfg: {
   init_loss_norm: 100,
