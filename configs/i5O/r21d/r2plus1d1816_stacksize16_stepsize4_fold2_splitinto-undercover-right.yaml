@@ -1,0 +1,114 @@
+dataset:
+  crop_ratio:
+  - 0.9
+  - 1.0
+  default_fps: null
+  downsample_rate: 1
+  feat_folder: /data/i5O/i5OData/video_features/r21d/r2plus1d_18_16_kinetics/stack_size16step_size4extraction_fpsNone_flat/
+  feat_stride: 4
+  file_ext: .npy
+  file_prefix: null
+  force_upsampling: false
+  input_dim: 512
+  json_file: /data/i5O/i5OData/annotations/i5Oannotations-new-5folds-splitinto-all.json
+  max_seq_len: 2304
+  num_classes: 20
+  num_frames: 16
+  trunc_thresh: 0.5
+dataset_name: i5O
+devices:
+- cuda:0
+init_rand_seed: 1234567891
+loader:
+  batch_size: 8
+  num_workers: 8
+model:
+  backbone_arch: !!python/tuple
+  - 2
+  - 2
+  - 5
+  backbone_type: convTransformer
+  embd_dim: 512
+  embd_kernel_size: 3
+  embd_with_ln: true
+  fpn_dim: 512
+  fpn_start_level: 0
+  fpn_type: identity
+  fpn_with_ln: true
+  head_dim: 512
+  head_kernel_size: 3
+  head_num_layers: 3
+  head_with_ln: true
+  input_dim: 512
+  max_buffer_len_factor: 6.0
+  max_seq_len: 2304
+  n_head: 4
+  n_mha_win_size: 19
+  num_classes: 20
+  regression_range:
+  - !!python/tuple
+    - 0
+    - 4
+  - !!python/tuple
+    - 4
+    - 8
+  - !!python/tuple
+    - 8
+    - 16
+  - !!python/tuple
+    - 16
+    - 32
+  - !!python/tuple
+    - 32
+    - 64
+  - !!python/tuple
+    - 64
+    - 10000
+  scale_factor: 2
+  test_cfg: &id001
+    duration_thresh: 0.05
+    ext_score_file: null
+    iou_threshold: 0.1
+    max_seg_num: 200
+    min_score: 0.001
+    multiclass_nms: true
+    nms_method: soft
+    nms_sigma: 0.5
+    pre_nms_thresh: 0.001
+    pre_nms_topk: 2000
+    voting_thresh: 0.7
+  train_cfg: &id002
+    center_sample: radius
+    center_sample_radius: 1.5
+    clip_grad_l2norm: 1.0
+    cls_prior_prob: 0.01
+    dropout: 0.0
+    droppath: 0.1
+    head_empty_cls: []
+    init_loss_norm: 100
+    label_smoothing: 0.0
+    loss_weight: 1.0
+  use_abs_pe: false
+  use_rel_pe: false
+model_name: LocPointTransformer
+opt:
+  epochs: 30
+  learning_rate: 0.0001
+  momentum: 0.9
+  schedule_gamma: 0.1
+  schedule_steps: []
+  schedule_type: cosine
+  type: AdamW
+  warmup: true
+  warmup_epochs: 5
+  weight_decay: 0.05
+output_folder: ./ckpt/
+test_cfg: *id001
+train_cfg: *id002
+train_split:
+- '1'
+- '3'
+- '4'
+- '5'
+val_split:
+- '2'
