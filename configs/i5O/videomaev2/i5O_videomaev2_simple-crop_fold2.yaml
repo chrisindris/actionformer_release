@@ -4,7 +4,7 @@ dataset:
   - 1.0
   default_fps: null
   downsample_rate: 1
-  feat_folder: /root/models/VideoMAEv2/out/
+  feat_folder: /data/i5O/i5OData/i5OData-simple-crop_VideoMAEv2_defaultsettings/
   feat_stride: 4
   file_ext: -cropped.npy
   file_prefix: null
@@ -20,8 +20,8 @@ devices:
 - cuda:0
 init_rand_seed: 1234567891
 loader:
-  batch_size: 2
-  num_workers: 4
+  batch_size: 8
+  num_workers: 16
 model:
   backbone_arch: !!python/tuple
   - 2

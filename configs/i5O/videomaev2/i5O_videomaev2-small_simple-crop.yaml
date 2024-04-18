@@ -4,7 +4,7 @@ train_split: ['validation']
 val_split: ['test']
 dataset: {
   json_file: /data/i5O/i5OData/annotations/i5Oannotations.json,
-  feat_folder: /root/models/VideoMAEv2/out_small/,
+  feat_folder: /data/i5O/i5OData/i5OData-simple-crop_VideoMAEv2-small_defaultsettings/,
   file_prefix: ~,
   file_ext: -cropped.npy,
   num_classes: 20, # i5O has 20 classes
